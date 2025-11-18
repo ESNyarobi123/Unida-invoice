@@ -1,0 +1,15 @@
+<svg width="256" height="256" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Unida Tech Limited Logo</title>
+  <desc id="desc">Stylized shield containing the letters U and T</desc>
+  <defs>
+    <linearGradient id="shieldGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0b66c3"/>
+      <stop offset="100%" stop-color="#004d99"/>
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" fill="none"/>
+  <path fill="url(#shieldGradient)" d="M74 36c0-7.18 5.82-13 13-13h16c7.18 0 13 5.82 13 13v104c0 15.46 12.54 28 28 28s28-12.54 28-28V36c0-7.18 5.82-13 13-13h16c7.18 0 13 5.82 13 13v104c0 43.63-35.37 79-79 79s-79-35.37-79-79z"/>
+  <path fill="#ffffff" d="M94 49c-2.21 0-4 1.79-4 4v87c0 30.33 24.67 55 55 55s55-24.67 55-55V53c0-2.21-1.79-4-4-4h-8c-2.21 0-4 1.79-4 4v87c0 21.54-17.46 39-39 39s-39-17.46-39-39V53c0-2.21-1.79-4-4-4z"/>
+  <path fill="#ffffff" d="M152 36h18v99c0 18.78-15.22 34-34 34s-34-15.22-34-34V36h18v99c0 8.82 7.18 16 16 16s16-7.18 16-16z"/>
+</svg>
+
