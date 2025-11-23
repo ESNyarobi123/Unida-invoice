@@ -12,801 +12,615 @@
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-            href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
             rel="stylesheet"
         />
         <style>
             :root {
-                color-scheme: light;
-                font-family: "Space Grotesk", "Segoe UI", sans-serif;
-                --primary: #0054aa;
-                --primary-dark: #002e68;
-                --accent: #11a44c;
-                --accent-soft: rgba(17, 164, 76, 0.15);
-                --text: #0b1d32;
-                --muted: #5f6b7c;
-                --border: #e0e5ec;
-                --bg: #f4f6fb;
-                --panel: rgba(255, 255, 255, 0.92);
+                --primary: #0f4c81; /* Classic Blue */
+                --primary-dark: #082d4f;
+                --accent: #2e8b57; /* Sea Green */
+                --accent-light: #e8f5e9;
+                --text: #1e293b;
+                --text-light: #64748b;
+                --bg: #f1f5f9;
+                --white: #ffffff;
+                --border: #e2e8f0;
+                --radius: 12px;
+                --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
             }
 
             * {
                 box-sizing: border-box;
+                margin: 0;
+                padding: 0;
             }
 
             body {
-                margin: 0;
-                min-height: 100vh;
-                background: radial-gradient(circle at 20% 20%, rgba(0, 84, 170, 0.15), transparent 50%),
-                    radial-gradient(circle at 80% 0%, rgba(17, 164, 76, 0.2), transparent 50%), var(--bg);
+                font-family: 'Outfit', sans-serif;
+                background: var(--bg);
                 color: var(--text);
-                padding: 32px clamp(16px, 5vw, 72px) 64px;
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
             }
 
-            .surface {
-                max-width: 1300px;
+            /* Layout & Surface */
+            .app-container {
+                max-width: 1400px;
                 margin: 0 auto;
-                backdrop-filter: blur(18px);
-                background: var(--panel);
-                border-radius: 40px;
-                border: 1px solid rgba(255, 255, 255, 0.5);
-                box-shadow: 0 35px 120px rgba(11, 26, 60, 0.16);
-                overflow: hidden;
-            }
-
-            .hero {
+                padding: 2rem;
+                width: 100%;
                 display: grid;
-                grid-template-columns: 1.4fr 0.8fr;
-                gap: 32px;
-                padding: clamp(32px, 5vw, 64px);
-                background: linear-gradient(120deg, #003d7a, #0054aa 45%, #0b8c40);
-                color: #fff;
-                align-items: center;
-            }
-
-            .hero h1 {
-                font-size: clamp(2rem, 3vw, 3.3rem);
-                margin: 0;
-                letter-spacing: 0.06em;
-            }
-
-            .hero p {
-                margin: 8px 0 0;
-                max-width: 540px;
-                color: rgba(255, 255, 255, 0.86);
-                font-size: 1.05rem;
-            }
-
-            .badge {
-                display: inline-flex;
-                gap: 10px;
-                padding: 10px 18px;
-                border-radius: 999px;
-                background: rgba(255, 255, 255, 0.16);
-                letter-spacing: 0.2em;
-                text-transform: uppercase;
-                font-size: 0.85rem;
-                margin-bottom: 14px;
-            }
-
-            .hero-meta {
-                text-align: right;
-            }
-
-            .hero-meta img {
-                width: 120px;
-                margin-bottom: 16px;
-            }
-
-            .user-card {
-                background: rgba(255, 255, 255, 0.18);
-                border-radius: 22px;
-                padding: 16px;
-                color: #fff;
-                display: flex;
-                flex-direction: column;
-                gap: 8px;
-            }
-
-            .user-card span {
-                font-size: 0.95rem;
-            }
-
-            .user-card form {
-                margin: 0;
-            }
-
-            .logout-btn {
-                background: rgba(255, 255, 255, 0.12);
-                border: 1px solid rgba(255, 255, 255, 0.3);
-                color: #fff;
-                border-radius: 999px;
-                padding: 8px 16px;
-                font-size: 0.85rem;
-                cursor: pointer;
-            }
-
-            .workspace {
-                display: grid;
-                grid-template-columns: minmax(360px, 1.05fr) minmax(440px, 1.15fr);
-                gap: 32px;
-                padding: clamp(24px, 4vw, 52px);
-            }
-
-            .column {
-                display: flex;
-                flex-direction: column;
-                gap: 24px;
+                grid-template-columns: 400px 1fr;
+                gap: 2rem;
+                align-items: start;
             }
 
             .panel {
-                background: #fff;
-                border-radius: 30px;
-                padding: 32px;
+                background: var(--white);
+                border-radius: var(--radius);
+                box-shadow: var(--shadow);
+                padding: 1.5rem;
                 border: 1px solid var(--border);
-                box-shadow: 0 24px 70px rgba(8, 23, 63, 0.08);
             }
 
-            .panel h2 {
-                margin: 0 0 6px;
+            /* Header / Nav */
+            .app-header {
+                background: var(--primary);
+                color: white;
+                padding: 1rem 2rem;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                box-shadow: var(--shadow);
+            }
+
+            .app-brand {
+                font-family: 'Space Grotesk', sans-serif;
+                font-weight: 700;
                 font-size: 1.5rem;
-            }
-
-            .panel p {
-                margin: 0 0 22px;
-                color: var(--muted);
-            }
-
-            .brand-row {
                 display: flex;
                 align-items: center;
-                gap: 16px;
-                margin-bottom: 12px;
+                gap: 0.5rem;
             }
 
-            .brand-row img {
-                width: 70px;
-                border-radius: 16px;
-            }
-
-            form {
+            .user-menu {
                 display: flex;
-                flex-direction: column;
-                gap: 18px;
+                align-items: center;
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .logout-btn {
+                background: rgba(255,255,255,0.2);
+                border: none;
+                color: white;
+                padding: 0.5rem 1rem;
+                border-radius: 2rem;
+                cursor: pointer;
+                transition: background 0.2s;
+            }
+
+            .logout-btn:hover {
+                background: rgba(255,255,255,0.3);
+            }
+
+            /* Form Styles */
+            .form-group {
+                margin-bottom: 1rem;
             }
 
             label {
-                font-size: 0.88rem;
-                font-weight: 600;
-                color: var(--primary);
+                display: block;
+                font-size: 0.85rem;
+                font-weight: 500;
+                color: var(--text-light);
+                margin-bottom: 0.4rem;
             }
 
-            input,
-            textarea,
-            select {
+            input, select, textarea {
                 width: 100%;
+                padding: 0.75rem;
                 border: 1px solid var(--border);
-                border-radius: 16px;
-                padding: 14px 16px;
-                font-size: 0.98rem;
+                border-radius: 8px;
                 font-family: inherit;
-                background: #fdfefe;
-                transition: border 0.2s, box-shadow 0.2s;
+                font-size: 0.95rem;
+                transition: border-color 0.2s;
+            }
+
+            input:focus, select:focus, textarea:focus {
+                outline: none;
+                border-color: var(--primary);
+                box-shadow: 0 0 0 3px rgba(15, 76, 129, 0.1);
             }
 
             textarea {
-                min-height: 110px;
                 resize: vertical;
+                min-height: 80px;
             }
 
-            input:focus,
-            textarea:focus,
-            select:focus {
-                outline: none;
-                border-color: var(--primary);
-                box-shadow: 0 0 0 3px rgba(0, 84, 170, 0.15);
-            }
-
-            .dual {
+            .row {
                 display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-                gap: 16px;
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem;
             }
 
-            .quick-actions {
+            .section-divider {
+                height: 1px;
+                background: var(--border);
+                margin: 1.5rem 0;
+                position: relative;
+            }
+
+            .section-divider span {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: var(--white);
+                padding: 0 0.5rem;
+                color: var(--text-light);
+                font-size: 0.8rem;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+            }
+
+            .actions {
                 display: flex;
-                gap: 12px;
-                margin-top: 8px;
-                flex-wrap: wrap;
+                gap: 1rem;
+                margin-top: 1.5rem;
             }
 
-            button {
+            .btn {
+                flex: 1;
+                padding: 0.8rem;
                 border: none;
-                border-radius: 999px;
-                padding: 12px 22px;
+                border-radius: 8px;
                 font-weight: 600;
                 cursor: pointer;
-                font-family: inherit;
-                transition: transform 0.1s ease, box-shadow 0.2s ease;
+                transition: transform 0.1s;
             }
 
-            .primary-btn {
+            .btn:active {
+                transform: scale(0.98);
+            }
+
+            .btn-primary {
                 background: var(--primary);
-                color: #fff;
-                box-shadow: 0 12px 32px rgba(0, 84, 170, 0.38);
+                color: white;
             }
 
-            .secondary-btn {
-                background: var(--accent-soft);
+            .btn-secondary {
+                background: var(--accent-light);
                 color: var(--accent);
             }
 
-            .ghost-btn {
-                background: rgba(0, 84, 170, 0.08);
-                color: var(--primary);
+            .btn-ghost {
+                background: transparent;
+                color: var(--text-light);
+                border: 1px solid var(--border);
             }
 
-            .note {
-                margin-top: 10px;
-                background: rgba(0, 84, 170, 0.05);
-                border-radius: 18px;
-                padding: 14px 16px;
-                font-size: 0.92rem;
-                color: var(--primary-dark);
-            }
-
-            .history-panel h2 {
-                margin-bottom: 4px;
-            }
-
-            .history-panel p {
-                margin-bottom: 18px;
-            }
-
-            .history-glance {
+            /* Invoice Preview - The "Amazing" Part */
+            .invoice-preview-container {
+                background: #525659; /* PDF viewer background feel */
+                padding: 2rem;
+                border-radius: var(--radius);
+                overflow: auto;
                 display: flex;
-                gap: 10px;
-                margin-bottom: 16px;
-                flex-wrap: wrap;
+                justify-content: center;
             }
 
-            .history-chip {
-                border-radius: 999px;
-                padding: 6px 14px;
-                font-size: 0.82rem;
-                background: rgba(0, 84, 170, 0.08);
-                color: var(--primary-dark);
-            }
-
-            .history-list {
+            .invoice-paper {
+                background: white;
+                width: 210mm; /* A4 width */
+                min-height: 297mm; /* A4 height */
+                padding: 0; /* We'll manage padding inside */
+                box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+                position: relative;
                 display: flex;
                 flex-direction: column;
-                gap: 16px;
-                max-height: 360px;
-                overflow-y: auto;
-                padding-right: 6px;
             }
 
-            .history-item {
-                display: grid;
-                grid-template-columns: auto 1fr;
-                gap: 12px;
+            /* Invoice Content Styling */
+            .inv-header {
+                text-align: center;
+                padding: 3rem 3rem 1rem;
             }
 
-            .history-item .dot {
-                width: 14px;
-                height: 14px;
-                border-radius: 50%;
-                background: var(--accent);
-                margin-top: 6px;
-                box-shadow: 0 0 0 6px rgba(17, 164, 76, 0.12);
-            }
-
-            .history-card {
-                border: 1px solid var(--border);
-                border-radius: 16px;
-                padding: 14px 16px;
-                background: linear-gradient(120deg, rgba(0, 84, 170, 0.04), rgba(255, 255, 255, 0.95));
-            }
-
-            .history-card strong {
-                font-size: 1rem;
-                display: block;
-            }
-
-            .history-card span {
-                display: block;
-                font-size: 0.85rem;
-                color: var(--muted);
-            }
-
-            .preview {
-                position: relative;
-                overflow: hidden;
-            }
-
-            .preview::before {
-                content: "";
-                position: absolute;
-                inset: 18px;
-                border-radius: 28px;
-                border: 1px dashed rgba(0, 84, 170, 0.18);
-                pointer-events: none;
-            }
-
-            .invoice {
-                position: relative;
-                background: #fff;
-                border-radius: 22px;
-                padding: 36px;
-                display: flex;
-                flex-direction: column;
-                gap: 24px;
-                min-height: 720px;
-                box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.02);
-            }
-
-            .invoice-header {
-                display: flex;
-                justify-content: space-between;
-                align-items: flex-start;
-                gap: 32px;
-                margin-bottom: 24px;
-                padding-bottom: 20px;
-                border-bottom: 2px solid var(--primary);
-            }
-
-            .invoice-logo img {
-                width: 120px;
-                height: auto;
-                object-fit: contain;
-            }
-
-            .invoice-company {
-                flex: 1;
-                text-align: right;
-            }
-
-            .invoice-title {
-                font-size: 2.2rem;
-                font-weight: 700;
+            .inv-title {
                 color: var(--primary);
-                letter-spacing: 0.1em;
-                margin-bottom: 12px;
-            }
-
-            .invoice-meta {
-                font-size: 0.95rem;
-                line-height: 1.8;
-                color: var(--text);
-            }
-
-            .invoice-meta strong {
-                color: var(--primary-dark);
-            }
-
-            .invoice-company-details {
-                margin-bottom: 28px;
-                padding-bottom: 20px;
-                border-bottom: 1px solid var(--border);
-                font-size: 0.95rem;
-                line-height: 1.8;
-                color: var(--text);
-            }
-
-            .invoice-company-details > div:first-child {
-                font-size: 1.1rem;
+                font-family: 'Space Grotesk', sans-serif;
+                font-size: 2rem;
                 font-weight: 700;
-                color: var(--primary-dark);
-                margin-bottom: 6px;
-            }
-
-            .divider {
-                height: 3px;
-                width: 80px;
-                background: var(--accent);
-                border-radius: 999px;
-            }
-
-            .summary-cards {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-                gap: 16px;
-            }
-
-            .summary-card {
-                border: 1px solid var(--border);
-                border-radius: 18px;
-                padding: 18px;
-                background: linear-gradient(140deg, rgba(0, 84, 170, 0.04), rgba(255, 255, 255, 0.96));
-            }
-
-            .summary-card span {
-                display: block;
-                color: var(--muted);
-                font-size: 0.82rem;
-                text-transform: uppercase;
-                letter-spacing: 0.16em;
-            }
-
-            .summary-card strong {
-                font-size: 1.05rem;
-                margin-top: 4px;
-                color: var(--primary-dark);
-            }
-
-            .invoice-section {
-                margin: 28px 0;
-            }
-
-            .section-title {
-                font-size: 1.1rem;
-                font-weight: 700;
-                color: var(--primary);
-                letter-spacing: 0.1em;
-                margin: 0 0 16px 0;
+                letter-spacing: 0.05em;
+                margin-bottom: 0.2rem;
                 text-transform: uppercase;
             }
 
-            .invoice-table {
-                width: 100%;
-                border-collapse: collapse;
-            }
-
-            .invoice-table th {
-                text-align: left;
+            .inv-tagline {
+                color: var(--accent);
                 font-size: 0.9rem;
+                letter-spacing: 0.1em;
+                font-weight: 500;
+            }
+
+            .inv-body {
+                padding: 2rem 3rem;
+                flex: 1;
+            }
+
+            .inv-meta-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 2rem;
+                margin-bottom: 3rem;
+                border-top: 2px solid var(--primary);
+                border-bottom: 2px solid var(--primary);
+                padding: 1.5rem 0;
+            }
+
+            .inv-label {
+                font-size: 0.75rem;
+                color: var(--text-light);
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+                margin-bottom: 0.25rem;
+            }
+
+            .inv-value {
+                font-size: 1rem;
                 font-weight: 600;
                 color: var(--text);
-                padding: 10px 0 8px 0;
-                width: 200px;
+            }
+
+            .inv-value.large {
+                font-size: 1.1rem;
+                color: var(--primary);
+            }
+
+            .inv-table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-bottom: 2rem;
+            }
+
+            .inv-table th {
+                text-align: left;
+                background: var(--bg);
+                padding: 0.8rem 1rem;
+                font-size: 0.8rem;
+                text-transform: uppercase;
+                color: var(--primary);
+                font-weight: 700;
+            }
+
+            .inv-table td {
+                padding: 1rem;
+                border-bottom: 1px solid var(--border);
                 vertical-align: top;
             }
 
-            .invoice-table td {
-                padding: 10px 0 8px 0;
+            .inv-description {
                 font-size: 0.95rem;
+                line-height: 1.6;
                 color: var(--text);
-                border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+                white-space: pre-wrap;
             }
 
-            .invoice-table tr:last-child td {
-                border-bottom: none;
-            }
-
-            .amount {
-                font-size: 2rem;
-                font-weight: 700;
-                color: var(--primary-dark);
-            }
-
-            .footer {
+            .inv-total-section {
                 display: flex;
-                justify-content: space-between;
-                font-size: 0.95rem;
-                color: var(--muted);
-                flex-wrap: wrap;
-                gap: 12px;
-                padding-top: 12px;
+                justify-content: flex-end;
+                margin-top: 1rem;
+            }
+
+            .inv-total-box {
+                background: var(--primary);
+                color: white;
+                padding: 1rem 2rem;
+                border-radius: 8px;
+                text-align: right;
+                min-width: 250px;
+            }
+
+            .inv-total-label {
+                font-size: 0.8rem;
+                opacity: 0.9;
+                margin-bottom: 0.2rem;
+            }
+
+            .inv-total-amount {
+                font-size: 1.8rem;
+                font-weight: 700;
+            }
+
+            .inv-footer {
+                text-align: center;
+                padding: 2rem 3rem 3rem;
+                font-size: 0.85rem;
+                color: var(--primary);
+                border-top: 1px solid var(--border);
+                margin-top: auto;
+            }
+
+            .inv-footer-company {
+                font-weight: 700;
+                text-transform: uppercase;
+                margin-bottom: 0.5rem;
+            }
+
+            .inv-footer-address {
+                margin-bottom: 0.5rem;
+                color: var(--text);
+            }
+
+            .inv-footer-contact {
+                display: flex;
+                justify-content: center;
+                gap: 1.5rem;
+                color: var(--text-light);
+            }
+
+            .inv-footer-contact span {
+                display: flex;
+                align-items: center;
+                gap: 0.4rem;
+            }
+
+            /* History Panel */
+            .history-list {
+                margin-top: 1rem;
+                display: flex;
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+
+            .history-item {
+                padding: 0.8rem;
+                border: 1px solid var(--border);
+                border-radius: 8px;
+                font-size: 0.9rem;
+                cursor: pointer;
+                transition: background 0.1s;
+            }
+
+            .history-item:hover {
+                background: var(--bg);
             }
 
             .status {
-                margin-top: 14px;
-                font-size: 0.95rem;
+                margin-top: 1rem;
+                padding: 0.8rem;
+                border-radius: 8px;
+                font-size: 0.9rem;
+                display: none;
             }
 
-            .status.success {
-                color: var(--accent);
-            }
+            .status.success { display: block; background: #dcfce7; color: #166534; }
+            .status.error { display: block; background: #fee2e2; color: #991b1b; }
 
-            .status.error {
-                color: #c44545;
-            }
-
-            @media (max-width: 1100px) {
-                .hero {
-                    grid-template-columns: 1fr;
-                    text-align: center;
-                }
-
-                .hero-meta {
-                    text-align: center;
-                }
-
-                .workspace {
-                    grid-template-columns: 1fr;
-                }
-            }
-
-            @page {
-                size: A4;
-                margin: 16mm;
-            }
-
+            /* Print Styles */
             @media print {
                 body {
-                    padding: 0;
-                    background: #fff;
-                    color: #000;
+                    background: white;
+                    display: block;
                 }
-
-                .surface {
-                    box-shadow: none;
-                    border-radius: 0;
-                    border: none;
-                }
-
-                .hero,
-                .panel.builder,
-                .history-panel {
+                .app-header, .panel.builder, .app-container {
                     display: none;
+                    padding: 0;
+                    margin: 0;
                 }
-
-                .workspace {
+                .invoice-preview-container {
+                    background: white;
                     padding: 0;
                     display: block;
                 }
-
-                .panel.preview,
-                .invoice {
-                    display: block;
+                .invoice-paper {
                     box-shadow: none;
-                    border: none;
                     width: 100%;
-                }
-
-                .preview::before {
-                    display: none;
-                }
-
-                #invoiceCanvas {
                     min-height: auto;
-                    padding: 0;
+                }
+                @page { margin: 0; }
+            }
+            
+            @media (max-width: 1100px) {
+                .app-container {
+                    grid-template-columns: 1fr;
+                }
+                .invoice-paper {
+                    width: 100%;
+                    min-height: auto;
                 }
             }
         </style>
     </head>
     <body>
-        <div class="surface">
-            <section class="hero">
-                <div>
-                    <div class="badge">Smart · Secure · Connected</div>
-                    <h1>Smart Invoice Studio</h1>
-                    <p>
-                        Karibu Unida Tech Limited. Jenga na print invoice ya mteja wako papo hapo kwa kutumia interface
-                        hii ya kisasa—rahisi, kasi na yenye maelezo yote muhimu.
-                    </p>
-                </div>
-                <div class="hero-meta">
-                    <img src="{{ asset('images/unida-logo.svg') }}" alt="Unida Tech logo" />
-                    <div class="user-card">
-                        <span>{{ $user['email'] ?? '' }}</span>
-                        <form method="POST" action="{{ route('logout') }}">
-                            @csrf
-                            <button type="submit" class="logout-btn">Toka / Logout</button>
-                        </form>
+        <header class="app-header">
+            <div class="app-brand">
+                <span>Unida Invoice</span>
+            </div>
+            <div class="user-menu">
+                <span>{{ $user['email'] ?? '' }}</span>
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <button type="submit" class="logout-btn">Logout</button>
+                </form>
+            </div>
+        </header>
+
+        <div class="app-container">
+            <!-- Builder Panel -->
+            <div class="panel builder">
+                <h2 style="margin-bottom: 1.5rem; color: var(--primary);">Invoice Details</h2>
+                <form id="invoiceForm">
+                    <div class="form-group">
+                        <label>Invoice Number</label>
+                        <input type="text" id="invoiceNumber" name="invoiceNumber" value="{{ $defaultInvoice }}" />
                     </div>
-                </div>
-            </section>
-
-            <div class="workspace">
-                <div class="column">
-                    <section class="panel builder">
-                        <div class="brand-row">
-                            <img src="{{ asset('images/unida.jpeg') }}" alt="Unida brand" />
-                            <div>
-                                <h2>Invoice Builder</h2>
-                                <p>Weka taarifa za mteja na mradi, kisha angalia matokeo upande wa kulia.</p>
-                            </div>
+                    
+                    <div class="row">
+                        <div class="form-group">
+                            <label>Issue Date</label>
+                            <input type="date" id="issueDate" name="issueDate" value="{{ $today->format('Y-m-d') }}" />
                         </div>
-
-                        <form id="invoiceForm">
-                            <div>
-                                <label for="invoiceNumber">Invoice Number</label>
-                                <input type="text" id="invoiceNumber" name="invoiceNumber" value="{{ $defaultInvoice }}" />
-                            </div>
-                            <div class="dual">
-                                <div>
-                                    <label for="issueDate">Issue Date</label>
-                                    <input type="date" id="issueDate" name="issueDate" value="{{ $today->format('Y-m-d') }}" />
-                                </div>
-                                <div>
-                                    <label for="supportLine">Support Line</label>
-                                    <input type="text" id="supportLine" name="supportLine" value="+255 762 494 775" />
-                                </div>
-                            </div>
-                            <hr style="border: none; border-top: 1px dashed var(--border); margin: 8px 0 4px" />
-                            <strong>Bill To (Mteja)</strong>
-                            <div>
-                                <label for="clientName">Jina la Mteja</label>
-                                <input type="text" id="clientName" name="clientName" placeholder="Ntalu Media" />
-                            </div>
-                            <div>
-                                <label for="clientCompany">Company / Brand</label>
-                                <input type="text" id="clientCompany" name="clientCompany" placeholder="Ntalu Digital" />
-                            </div>
-                            <div class="dual">
-                                <div>
-                                    <label for="clientEmail">Email</label>
-                                    <input type="email" id="clientEmail" name="clientEmail" placeholder="client@email.com" />
-                                </div>
-                                <div>
-                                    <label for="clientMobile">Mobile</label>
-                                    <input type="tel" id="clientMobile" name="clientMobile" placeholder="+255..." />
-                                </div>
-                            </div>
-                            <div>
-                                <label for="clientLocation">Location</label>
-                                <input type="text" id="clientLocation" name="clientLocation" placeholder="Dar es Salaam, Tanzania" />
-                            </div>
-                            <hr style="border: none; border-top: 1px dashed var(--border); margin: 8px 0 4px" />
-                            <strong>Project Details</strong>
-                            <div>
-                                <label for="service">Service Summary</label>
-                                <textarea
-                                    id="service"
-                                    name="service"
-                                    placeholder="Website modification, social media creation, and admin panel development"
-                                ></textarea>
-                            </div>
-                            <div>
-                                <label for="website">Website / Platform</label>
-                                <input type="text" id="website" name="website" placeholder="https://client-website.com" />
-                            </div>
-                            <div class="dual">
-                                <div>
-                                    <label for="currency">Currency</label>
-                                    <select id="currency" name="currency">
-                                        <option value="TZS">TZS</option>
-                                        <option value="USD">USD</option>
-                                        <option value="EUR">EUR</option>
-                                    </select>
-                                </div>
-                                <div>
-                                    <label for="budget">Total Budget</label>
-                                    <input type="number" id="budget" name="budget" placeholder="1500000" />
-                                </div>
-                            </div>
-                            <div class="quick-actions">
-                                <button type="button" class="primary-btn" id="printInvoice">Chapisha / Print</button>
-                                <button type="button" class="ghost-btn" id="saveInvoice">Save to History</button>
-                                <button type="button" class="secondary-btn" id="resetInvoice">Reset</button>
-                            </div>
-                            <div class="note">
-                                Invoice be issued on 17th November 1.5m as 1st installement. Hakikisha malipo yamesajiliwa kabla
-                                ya kuwasilisha.
-                            </div>
-                            <div id="status" class="status"></div>
-                        </form>
-                    </section>
-
-                    <section class="panel history-panel">
-                        <div class="brand-row" style="margin-bottom: 0">
-                            <div>
-                                <h2>Invoice History</h2>
-                                <p>Muhtasari wa invoices ulizohifadhi leo na siku zilizopita.</p>
-                            </div>
-                        </div>
-                        <div class="history-glance" id="historyChips">
-                            @forelse ($history->take(3) as $entry)
-                                <span class="history-chip">{{ $entry['invoiceNumber'] }}</span>
-                            @empty
-                                <span class="history-chip">Hakuna rekodi bado</span>
-                            @endforelse
-                        </div>
-                        <div class="history-list" id="historyList">
-                            @forelse ($history as $entry)
-                                <div class="history-item">
-                                    <div class="dot"></div>
-                                    <div class="history-card">
-                                        <strong>{{ $entry['invoiceNumber'] }}</strong>
-                                        <span>{{ \Carbon\Carbon::parse($entry['issueDate'])->format('d M Y') }} · {{ $entry['clientName'] }}</span>
-                                        <span>{{ $entry['currency'] }} {{ number_format($entry['budget']) }} • {{ $entry['created_by'] ?? '' }}</span>
-                                    </div>
-                                </div>
-                            @empty
-                                <div class="history-card">
-                                    <strong>No invoices yet</strong>
-                                    <span>Hifadhi invoice yako ya kwanza ili ionekane hapa.</span>
-                                </div>
-                            @endforelse
-                        </div>
-                    </section>
-                </div>
-
-                <section class="panel preview">
-                    <div class="invoice" id="invoiceCanvas">
-                        <header class="invoice-header">
-                            <div class="invoice-logo">
-                                <img src="{{ asset('images/unida.jpeg') }}" alt="Unida Tech Limited" />
-                            </div>
-                            <div class="invoice-company">
-                                <div class="invoice-title">INVOICE</div>
-                                <div class="invoice-meta">
-                                    <div><strong>INVOICE NO.:</strong> <span id="previewInvoiceNumber">{{ $defaultInvoice }}</span></div>
-                                    <div><strong>ISSUE DATE:</strong> <span id="previewIssueDate">{{ $today->format('d M Y') }}</span></div>
-                                </div>
-                            </div>
-                        </header>
-
-                        <div class="invoice-company-details">
-                            <div><strong>UNIDA TECH LIMITED</strong></div>
-                            <div>Address: 32649 Mabatini Road, 12 Mwenge Nzasa, Kinondoni, Dar es Salaam</div>
-                            <div>Phone: <span id="previewSupportLine">+255 762 494 775</span></div>
-                            <div>Email: info@unida.tech</div>
-                            <div>Smart · Secure · Connected</div>
-                        </div>
-
-                        <div class="invoice-section">
-                            <h3 class="section-title">BILL TO (MTEJA)</h3>
-                            <table class="invoice-table">
-                                <tbody>
-                                    <tr>
-                                        <th>NAME:</th>
-                                        <td id="previewClientName">—</td>
-                                    </tr>
-                                    <tr>
-                                        <th>COMPANY / BRAND:</th>
-                                        <td id="previewClientCompany">—</td>
-                                    </tr>
-                                    <tr>
-                                        <th>EMAIL:</th>
-                                        <td id="previewClientEmail">—</td>
-                                    </tr>
-                                    <tr>
-                                        <th>LOCATION:</th>
-                                        <td id="previewClientLocation">—</td>
-                                    </tr>
-                                    <tr>
-                                        <th>MOBILE:</th>
-                                        <td id="previewClientMobile">—</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-
-                        <div class="invoice-section">
-                            <h3 class="section-title">PROJECT DETAILS</h3>
-                            <table class="invoice-table">
-                                <tbody>
-                                    <tr>
-                                        <th>SERVICE:</th>
-                                        <td id="previewService">
-                                            Website modification, social media creation, and admin panel development
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th>WEBSITE:</th>
-                                        <td id="previewWebsite">—</td>
-                                    </tr>
-                                    <tr>
-                                        <th>TOTAL PROJECT VALUE (BUDGET):</th>
-                                        <td class="amount" id="previewBudget">TZS 0</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-
-                        <div class="footer">
-                            <div>
-                                Kwa ufafanuzi zaidi tuandikie <strong>info@unida.tech</strong> au tupigie
-                                <span id="footerSupport">+255 762 494 775</span>
-                            </div>
-                            <div>Smart · Secure · Connected</div>
+                        <div class="form-group">
+                            <label>Currency</label>
+                            <select id="currency" name="currency">
+                                <option value="TZS">TZS</option>
+                                <option value="USD">USD</option>
+                                <option value="EUR">EUR</option>
+                            </select>
                         </div>
                     </div>
-                </section>
+
+                    <div class="section-divider"><span>CLIENT</span></div>
+
+                    <div class="form-group">
+                        <label>Client Name</label>
+                        <input type="text" id="clientName" name="clientName" placeholder="e.g. John Doe" />
+                    </div>
+                    <div class="form-group">
+                        <label>Company / Brand</label>
+                        <input type="text" id="clientCompany" name="clientCompany" placeholder="e.g. Acme Corp" />
+                    </div>
+                    <div class="row">
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" id="clientEmail" name="clientEmail" placeholder="client@example.com" />
+                        </div>
+                        <div class="form-group">
+                            <label>Mobile</label>
+                            <input type="tel" id="clientMobile" name="clientMobile" placeholder="+255..." />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Location</label>
+                        <input type="text" id="clientLocation" name="clientLocation" placeholder="City, Country" />
+                    </div>
+
+                    <div class="section-divider"><span>PROJECT</span></div>
+
+                    <div class="form-group">
+                        <label>Service Description</label>
+                        <textarea id="service" name="service" placeholder="Describe the services provided..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Website / Link</label>
+                        <input type="text" id="website" name="website" placeholder="https://..." />
+                    </div>
+                    <div class="form-group">
+                        <label>Total Budget</label>
+                        <input type="number" id="budget" name="budget" placeholder="0.00" />
+                    </div>
+
+                    <!-- Hidden fields for fixed data -->
+                    <input type="hidden" id="supportLine" name="supportLine" value="+255 762 494 775">
+
+                    <div class="actions">
+                        <button type="button" class="btn btn-ghost" id="resetInvoice">Reset</button>
+                        <button type="button" class="btn btn-secondary" id="saveInvoice">Save</button>
+                        <button type="button" class="btn btn-primary" id="printInvoice">Print</button>
+                    </div>
+                    <div id="status" class="status"></div>
+                </form>
+
+                <div style="margin-top: 2rem;">
+                    <h3 style="font-size: 1rem; color: var(--text-light); margin-bottom: 1rem;">Recent History</h3>
+                    <div id="historyList" class="history-list">
+                        <!-- JS will populate this -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Preview Panel -->
+            <div class="invoice-preview-container">
+                <div class="invoice-paper" id="invoiceCanvas">
+                    <!-- Header -->
+                    <div class="inv-header">
+                        <div class="inv-title">UNIDA TECH LIMITED</div>
+                        <div class="inv-tagline">Smart. Secure. Connected.</div>
+                    </div>
+
+                    <!-- Body -->
+                    <div class="inv-body">
+                        <div class="inv-meta-grid">
+                            <div>
+                                <div class="inv-label">Billed To</div>
+                                <div class="inv-value large" id="previewClientName">—</div>
+                                <div class="inv-value" id="previewClientCompany" style="font-weight: 400; margin-top: 4px;">—</div>
+                                <div style="margin-top: 8px; font-size: 0.9rem; color: var(--text-light);">
+                                    <div id="previewClientLocation">—</div>
+                                    <div id="previewClientEmail">—</div>
+                                    <div id="previewClientMobile">—</div>
+                                </div>
+                            </div>
+                            <div style="text-align: right;">
+                                <div class="inv-label">Invoice Details</div>
+                                <div style="margin-bottom: 8px;">
+                                    <span class="inv-label">NO:</span>
+                                    <span class="inv-value" id="previewInvoiceNumber">{{ $defaultInvoice }}</span>
+                                </div>
+                                <div>
+                                    <span class="inv-label">DATE:</span>
+                                    <span class="inv-value" id="previewIssueDate">{{ $today->format('d M Y') }}</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <table class="inv-table">
+                            <thead>
+                                <tr>
+                                    <th>Description</th>
+                                    <th style="width: 150px; text-align: right;">Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="inv-value" style="margin-bottom: 0.5rem;">Project Services</div>
+                                        <div class="inv-description" id="previewService">Website modification, social media creation, and admin panel development</div>
+                                        <div style="margin-top: 0.5rem; font-size: 0.85rem; color: var(--text-light);">
+                                            Platform: <span id="previewWebsite">—</span>
+                                        </div>
+                                    </td>
+                                    <td style="text-align: right;">
+                                        <div class="inv-value" id="previewBudget">TZS 0</div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="inv-total-section">
+                            <div class="inv-total-box">
+                                <div class="inv-total-label">TOTAL DUE</div>
+                                <div class="inv-total-amount" id="previewTotal">TZS 0</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Footer -->
+                    <div class="inv-footer">
+                        <div class="inv-footer-company">UNIDA TECH LIMITED</div>
+                        <div class="inv-footer-address">Mabatini Road, 12 Mwenge Nzasa, Kijitonyama 32649, Dar es Salaam, Tanzania</div>
+                        <div class="inv-footer-contact">
+                            <span>✉ info@unida.tech</span>
+                            <span>🌐 https://unida.tech</span>
+                            <span>📞 +255 762 494 775</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
         <script>
             const form = document.getElementById("invoiceForm");
             const historyList = document.getElementById("historyList");
-            const historyChips = document.getElementById("historyChips");
             const statusBox = document.getElementById("status");
             const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute("content");
             const initialHistory = @json($history);
 
+            // Mapping: [InputID, PreviewID, OptionalFormatter]
             const fields = [
                 ["invoiceNumber", "previewInvoiceNumber"],
                 [
@@ -818,8 +632,6 @@
                         return date.toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric" });
                     },
                 ],
-                ["supportLine", "previewSupportLine"],
-                ["supportLine", "footerSupport"],
                 ["clientName", "previewClientName"],
                 ["clientCompany", "previewClientCompany"],
                 ["clientEmail", "previewClientEmail"],
@@ -840,29 +652,21 @@
             ];
 
             const renderHistory = (items) => {
-                if (!historyList || !historyChips) return;
+                if (!historyList) return;
 
                 if (!items.length) {
-                    historyList.innerHTML =
-                        '<div class="history-card"><strong>No invoices yet</strong><span>Hifadhi invoice yako ya kwanza ili ionekane hapa.</span></div>';
-                    historyChips.innerHTML = '<span class="history-chip">Hakuna rekodi bado</span>';
+                    historyList.innerHTML = '<div style="color: var(--text-light); font-size: 0.9rem;">No invoices saved yet.</div>';
                     return;
                 }
-
-                historyChips.innerHTML = items
-                    .slice(0, 3)
-                    .map((item) => `<span class="history-chip">${item.invoiceNumber}</span>`)
-                    .join("");
 
                 historyList.innerHTML = items
                     .map(
                         (item) => `
-                        <div class="history-item">
-                            <div class="dot"></div>
-                            <div class="history-card">
-                                <strong>${item.invoiceNumber}</strong>
-                                <span>${new Date(item.issueDate).toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric" })} · ${item.clientName}</span>
-                                <span>${item.currency} ${Number(item.budget).toLocaleString()} • ${item.created_by ?? ""}</span>
+                        <div class="history-item" onclick="loadHistoryItem('${item.invoiceNumber}')">
+                            <div style="font-weight: 600; color: var(--primary);">${item.invoiceNumber}</div>
+                            <div style="display: flex; justify-content: space-between; margin-top: 4px; color: var(--text-light); font-size: 0.8rem;">
+                                <span>${item.clientName}</span>
+                                <span>${item.currency} ${Number(item.budget).toLocaleString()}</span>
                             </div>
                         </div>
                     `,
@@ -883,10 +687,14 @@
                     const value = input.value.trim();
                     preview.textContent = transformer ? transformer(value) : value || "—";
                 });
-                if (!fieldId || fieldId === "currency") {
+                
+                // Update Total Box as well
+                if (!fieldId || fieldId === "budget" || fieldId === "currency") {
                     const budgetInput = document.getElementById("budget");
+                    const currencyInput = document.getElementById("currency");
                     const render = fields.find((f) => f[0] === "budget")[2];
-                    document.getElementById("previewBudget").textContent = render(budgetInput.value.trim());
+                    const totalText = render(budgetInput.value.trim());
+                    document.getElementById("previewTotal").textContent = totalText;
                 }
             };
 
@@ -900,19 +708,18 @@
 
             document.getElementById("resetInvoice").addEventListener("click", () => {
                 form.reset();
+                // Reset defaults
                 document.getElementById("invoiceNumber").value = "{{ $defaultInvoice }}";
                 document.getElementById("issueDate").value = "{{ $today->format('Y-m-d') }}";
-                document.getElementById("supportLine").value = "+255 762 494 775";
-                document.getElementById("service").value =
-                    "Website modification, social media creation, and admin panel development";
                 updatePreview();
-                statusBox.textContent = "";
-                statusBox.className = "status";
+                statusBox.style.display = 'none';
             });
 
             document.getElementById("saveInvoice").addEventListener("click", async () => {
                 statusBox.textContent = "Saving...";
                 statusBox.className = "status";
+                statusBox.style.display = 'block';
+                
                 try {
                     const formData = new FormData(form);
                     const response = await fetch("{{ route('invoices.store') }}", {
@@ -927,17 +734,17 @@
                     }
                     const payload = await response.json();
                     renderHistory(payload.history);
-                    statusBox.textContent = "Invoice saved and added to history.";
+                    statusBox.textContent = "Invoice saved successfully!";
                     statusBox.className = "status success";
                 } catch (error) {
                     statusBox.textContent =
-                        (error && error.message) || "Imeshindikana kuhifadhi. Hakikisha sehemu zote zimejazwa.";
+                        (error && error.message) || "Failed to save invoice. Please check inputs.";
                     statusBox.className = "status error";
                 }
             });
 
+            // Initial render
             updatePreview();
         </script>
     </body>
 </html>
-
