@@ -405,23 +405,49 @@
                 body {
                     background: white;
                     display: block;
+                    height: auto;
+                    overflow: visible;
                 }
-                .app-header, .panel.builder, .app-container {
-                    display: none;
-                    padding: 0;
+                
+                .app-header, 
+                .panel.builder {
+                    display: none !important;
+                }
+
+                .app-container {
+                    display: block !important;
+                    width: 100%;
                     margin: 0;
+                    padding: 0;
+                    max-width: none;
                 }
+
                 .invoice-preview-container {
                     background: white;
                     padding: 0;
-                    display: block;
+                    margin: 0;
+                    display: block !important;
+                    border: none;
+                    overflow: visible;
                 }
+
                 .invoice-paper {
                     box-shadow: none;
                     width: 100%;
-                    min-height: auto;
+                    margin: 0;
+                    padding: 0;
+                    border: none;
                 }
-                @page { margin: 0; }
+
+                * {
+                    -webkit-print-color-adjust: exact !important;
+                    print-color-adjust: exact !important;
+                }
+
+                @page { 
+                    margin: 0;
+                    size: auto;
+                }
             }
             
             @media (max-width: 1100px) {
