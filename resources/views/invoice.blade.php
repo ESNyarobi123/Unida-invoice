@@ -564,7 +564,7 @@
                 <div class="invoice-paper" id="invoiceCanvas">
                     <!-- Header -->
                     <div class="inv-header">
-                        <div class="inv-title">AMOS TECH LIMITED</div>
+                        <div class="inv-title">UNIDA TECH LIMITED</div>
                         <div class="inv-tagline">Smart. Secure. Connected.</div>
                     </div>
 
